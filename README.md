@@ -16,8 +16,8 @@ ENCRYPTED_KEY=
 DECREPTED_KEY=
 ```
 ```
-git clone 
-cd 
-npm I
+git clone https://github.com/anshunini1/Shoping-Cart-Backend.git
+cd Shopping-Cart-Backend
+npm i
 npm start 
 ```
