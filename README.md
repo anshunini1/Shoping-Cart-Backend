@@ -1,8 +1,8 @@
-#This is the backend for shoping cart app. 
+# This is the backend for shoping cart app. 
 
-##It uses **JWT**  to user authorization.
+## It uses **JWT**  to user authorization.
 
-###Pre requisites:
+### Pre requisites:
 >Redis: https://redis.io/docs/latest/operate/oss_and_stack/install/
 
 Sample .env file
