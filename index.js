@@ -22,15 +22,14 @@ app.get('/ping', async (req, res, next) => {
   res.send({message: 'Hello from server.'})
 })
 app.use('/*', async (req, res, next) => {
-  if(req.body &&  req.body.hasOwnProperty("M") !== object )
+  if(req.body &&  req.body.hasOwnProperty("M") )
    {
-    const decryptedText=  decryptText(req.body.M)
+    const decryptedText=  await decryptText(req.body.M)
     req.body=JSON.parse(decryptedText)
     next()
    } 
   else
   {
-    console.log("AAAAASSSS")
     next()
   }
  
