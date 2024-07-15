@@ -1,6 +1,7 @@
 const { urlencoded } = require("body-parser")
 const express = require("express")
 const createError = require("http-errors")
+const cors = require('cors');
 const { extend } = require("lodash")
 const { verifyToken } = require('./helpers/jwttoken_generator')
 const AuthenticationRout= require("./Route/authentication.route")
@@ -8,8 +9,16 @@ require('dotenv').config()
 const app=express()
 require("./helpers/mongoconnection")
 require("./helpers/redis_start")
+const corsOptions = {
+  credentials: true,
+  origin: ['http://localhost:3000'] // Whitelist the domains you want to allow
+};
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.get('/ping', async (req, res, next) => {
+  res.send({message: 'Hello from server.'})
+})
 app.get('/get', verifyToken, async (req, res, next) => {
   res.send('Hello from express.')
 })

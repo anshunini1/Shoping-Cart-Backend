@@ -18,8 +18,8 @@ Userschema.pre('save',async function(next)
  try{   if(this.isNew)
     {
         const salt= await bcrypt.genSalt(10)
-       const hashedpassword=  bcrypt.hash(this.password,salt)
-this.password=hashedpassword
+        const hashedpassword=  await bcrypt.hash(this.password, salt)
+        this.password=hashedpassword
     }
     next()}
     catch(error)
